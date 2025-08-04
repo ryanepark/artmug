@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Crusadope Portfolio</title>
+  <style>
+    html, body {
+      height: auto !important;
+      min-height: 100% !important;
+      overflow-x: hidden;
+    }
+    summary {
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0;
+    }
+    details > details summary {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1.5em;
+    }
+    .embed-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+    .track-block {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      flex: 1 1 0;
+      max-width: 533px;
+      min-width: 320px;
+      width: 100%;
+    }
+    .category-block {
+      background: #f3f6ff;
+      border-radius: 18px;
+      padding: 28px 22px 18px 22px;
+      margin-bottom: 38px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    iframe {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 533px;
+      min-width: 0;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    iframe[src*="soundcloud.com"] {
+      height: 140px;
+    }
+    .gear-section summary {
+      font-size: 1rem !important;
+      font-weight: normal !important;
+    }
+    .gear-section li {
+      font-size: 0.95rem;
+      font-weight: normal;
+    }
+    .role-tag {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #666;
+      background: transparent;
+      border-radius: 12px;
+      padding: 3px 10px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      box-shadow: none;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .role-tag .hashtags {
+      color: #4a90e2;
+      font-weight: 400;
+      margin-left: 6px;
+    }
+    /* 반응형: 모바일에서 임베드 한 줄에 하나씩 */
+    @media (max-width: 700px) {
+      .embed-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .track-block {
+        max-width: 100%;
+        min-width: 0;
+        margin-bottom: 24px;
+      }
+      iframe {
+        max-width: 100%;
+        min-width: 0;
+        width: 100%;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="font-family:'Segoe UI', sans-serif; background:#fff; color:#222; line-height:1.6; padding:20px; min-height:100%; box-sizing:border-box; overflow-x:hidden; width:100%;">
+    <p>안녕하세요,</p>
+    <p>2020년부터 Crusadope, 2sonmoa 등의 이름으로 활동해온 작곡가 유진입니다.</p>
+    <p>현재 엔터테인먼트 회사 OMNISOUND의 프로덕션 팀 소속으로, 각종 음원 사이트에 총 100여 곡 이상의 발매 경험이 있습니다.</p>
+    <p>또한, 노브레인 ‘넌 내게 반했어’ 리믹스 콘테스트 우승, 그 외 다수의 리믹스 콘테스트 수상 경력이 있으며,</p>
+    <p>호원대학교 실용음악학부 뮤직프로덕션 전공으로 재학 중입니다.</p>
+    <p>주로 전자음악을 기반으로 작업하며, 댄스 / 힙합 / 로파이 / 이지리스닝 / 밴드곡 등 다양한 장르와 스타일을 소화할 수 있습니다.</p>
+    <br><br>
+    <p style="background: #ffe9b3; border-radius: 8px; padding: 12px 16px; font-weight: bold; color: #a66c00;">
+      작업 전 반드시 상담 부탁드리며, 작업물은 포트폴리오 용도로 활용될 수 있습니다. 원치 않으실 경우 미리 말씀해 주세요.<br>
+      주문 시 꼭 레퍼런스 곡이나 참고 자료를 함께 보내주시면 더욱 원활한 진행이 가능합니다.<br><br>
+      곡 업로드 시 크레딧을 남겨주세요! 예) 작편곡: 유진 (@ryanepark)
+    </p>
+    <details open class="category-block">
+      <summary style="font-size: 1.5rem;">🎵 작편곡</summary>
+      <details open>
+        <summary>🎤 오리지널 보컬 곡</summary>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/Bi5CEr-k9s4?si=vB8BA0dCSugxiSvQ" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#팝 #일렉트로닉 #몽환적인</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/2S5UyEqSzhg?si=Z8smBF5BubT7wRTr" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#일렉트로닉 #귀여운 #챌린지</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/VcfAkzGGRvs?si=AqZxWwoj2WOCwokP" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#애니풍 #귀여운</span></span>
+          </div>
+        </div>
+      </details>
+      <details open>
+        <summary>🎛️ 개인 포트폴리오</summary>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/jMiiZNNzJms?si=xomIj_6tFfobhbER" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡 <span class="hashtags">#케이팝 #일렉트로닉 #하우스</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/tIjVvYbtmsU?si=oVXfWX0pBinJqQCH" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱 <span class="hashtags">#뉴진스님 #EDM #싸이트랜스</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/Yo9LTAB1o_0?si=ypwh4x9Cicy_uzFW" allowfullscreen></iframe>
+            <span class="role-tag">리믹스 <span class="hashtags">#KIRARA #일렉트로닉 #인디</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/8aXFqXdtpHw?si=ZCFG3K1Q-N5J7YA-" allowfullscreen></iframe>
+            <span class="role-tag">리믹스 <span class="hashtags">#케이팝 #하우스</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/UryboSF7hvw?si=eMdt0Pqdxa1iDYWU" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#일렉트로닉 #어두운</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/nC7DpxAzBJ4?si=czuL_-XcuZSesR2f" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#일렉트로닉 #팝 #몽환적인</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/Rr6aSnijbuY?si=7MITJYlI6hp-A9rp" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#일렉트로닉 #EDM #힘찬</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/7WLuSKHJNXs?si=fRxJu257zL_WiYCa" allowfullscreen></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#일렉트로닉 #EDM #멜로디컬</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2129446434%3Fsecret_token%3Ds-mZ9uAm69Ecb" allow="autoplay"></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#밴드 #제이락 #애니송</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2116642155" allow="autoplay"></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#일렉트로닉 #하드코어</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1935150560" allow="autoplay"></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#입시곡 #일렉트로닉 #복합적인</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1683574995" allow="autoplay"></iframe>
+            <span class="role-tag">작사, 작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#일렉트로닉 #하드코어 #밝은</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1815701205" allow="autoplay"></iframe>
+            <span class="role-tag">리믹스 <span class="hashtags">#고민중독 #일렉트로닉 #하드코어</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1750497870" allow="autoplay"></iframe>
+            <span class="role-tag">리믹스 <span class="hashtags">#내꺼하는법 #일렉트로닉 #하드코어</span></span>
+          </div>
+        </div>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1231564930" allow="autoplay"></iframe>
+            <span class="role-tag">리믹스 <span class="hashtags">#이세돌 #일렉트로닉 #퓨쳐베이스</span></span>
+          </div>
+          <div class="track-block">
+            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1838175594" allow="autoplay"></iframe>
+            <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#로파이 #그루비한 #잔잔한</span></span>
+          </div>
+        </div>
+      </details>
+      <details open>
+        <summary>🎶 MR 카피</summary>
+        <div class="embed-row">
+          <div class="track-block">
+            <iframe src="https://www.youtube.com/embed/nQUiZe5FkRw?si=jAFcexy78zZrqGmZ" allowfullscreen></iframe>
+            <span class="role-tag">MR 카피 <span class="hashtags">#골든 #케데헌</span></span>
+          </div>
+        </div>
+      </details>
+    </details>
+    <details open class="category-block">
+      <summary style="font-size: 1.5rem;">🔊 영상 효과음</summary>
+      <div class="embed-row">
+        <div class="track-block">
+          <blockquote class="twitter-tweet" data-media-max-width="560">
+            <p lang="en" dir="ltr">[ 2025.08.11 ] I-BLOOM DEBUT 🔥 <a href="https://t.co/87rW6jzfsn">pic.twitter.com/87rW6jzfsn</a></p>&mdash; I-BLOOM (@IBLOOM_OFFICIAL) <a href="https://twitter.com/IBLOOM_OFFICIAL/status/1948397835013239245?ref_src=twsrc%5Etfw">July 24, 2025</a>
+          </blockquote>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <span class="role-tag">효과음 제작, 삽입 <span class="hashtags">#버튜버 #티저</span></span>
+        </div>
+      </div>
+    </details>
+    <details open class="category-block">
+      <summary style="font-size: 1.5rem;">🎙️ 방송 음향 세팅</summary>
+      <div class="embed-row">
+        <div class="track-block"
+          style="background:#03ffa3; border-radius:18px; padding:18px 0; margin-top:0; width:100%; max-width:533px; min-width:0; display:flex; flex-direction:column; align-items:center; box-sizing:border-box;">
+          <a href="https://chzzk.naver.com/ce13073cfc22db786df352e5ca02651d/" target="_blank" style="color:#222; text-decoration:underline; font-weight:bold;">
+            아메미야 아코님
+          </a>
+          <a href="https://chzzk.naver.com/148f93cfcdf9d1328b713ee9e8f7fb3a" target="_blank" style="color:#222; text-decoration:underline; font-weight:bold;">
+            깡모루님
+          </a>
+        </div>
+        <!-- 추후 숲 배경도 아래와 같이 추가하면 동일하게 적용됩니다.
+        <div class="track-block"
+          style="background:#숲색상; border-radius:18px; padding:18px 0; margin-top:0; width:100%; max-width:533px; min-width:0; display:flex; flex-direction:column; align-items:center; box-sizing:border-box;">
+          ...스트리머 목록...
+        </div>
+        -->
+      </div>
+    </details>
+    <details class="gear-section category-block" style="margin-top:0;">
+      <summary style="font-size: 1.1rem; font-weight: normal; margin-top: 0;">🎧 사용 장비</summary>
+      <ul style="font-size: 0.85rem; font-weight: normal;">
+        <li>CPU: Apple M3 Pro / Intel i5-9400F</li>
+        <li>오디오 인터페이스: PreSonus AudioBox USB 96</li>
+        <li>스피커: KRK VXT4</li>
+        <li>헤드폰: beyerdynamic DT900 Pro X / DT990 Pro</li>
+        <li>이어폰: Simgot EA500 LM / Apple AirPods Pro 2</li>
+        <li>DAW: Ableton Live 12 Suite / Image-Line FL Studio 2025 / Apple Logic Pro</li>
+      </ul>
+    </details>
+    <iframe scrolling="no" frameborder="0" allowtransparency="true"
+      src="https://platform.twitter.com/widgets/widget_iframe.2f70fb173b9000da126c79afe2098f02.html?origin=https%3A%2F%2Fartmug.kr"
+      title="Twitter settings iframe" style="display: none;"></iframe>
+    <iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true"
+      style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"
+      title="Twitter analytics iframe"></iframe>
+  </div>
+</body>
+<script src="https://unpkg.com/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
+<script>
+  function sendHeight() {
+    // 정확한 높이 계산을 위해 약간의 지연
+    setTimeout(() => {
+      const height = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+      
+      // 다양한 방법으로 높이 전송 (아트머그 호환성 위해)
+      if (window.parent) {
+        // 방법 1: 기본 postMessage
+        window.parent.postMessage({ 
+          iframeHeight: height + 30,
+          type: 'resize'
+        }, "*");
+        
+        // 방법 2: 아트머그 전용 메시지
+        window.parent.postMessage({
+          height: height + 30,
+          source: 'iframe-content'
+        }, "*");
+        
+        // 방법 3: 범용 iframe 리사이즈 메시지
+        window.parent.postMessage({
+          action: 'resize',
+          height: height + 30
+        }, "*");
+      }
+      
+      // iframe-resizer 사용
+      if (window.parentIFrame && window.parentIFrame.size) {
+        window.parentIFrame.size(height + 30);
+      }
+      
+      // 직접 iframe 조작 시도 (아트머그용)
+      try {
+        if (window.parent && window.parent.document) {
+          const iframes = window.parent.document.querySelectorAll('iframe[src*="netlify.app"]');
+          iframes.forEach(iframe => {
+            iframe.style.height = (height + 30) + 'px';
+          });
+        }
+      } catch(e) {
+        // 보안상 막힐 수 있음
+      }
+      
+      console.log('Height sent:', height + 30);
+    }, 150);
+  }
+
+  // 페이지 로드 시 (여러 번 시도)
+  window.addEventListener("load", () => {
+    sendHeight();
+    setTimeout(sendHeight, 500);
+    setTimeout(sendHeight, 1000);
+    setTimeout(sendHeight, 2000);
+  });
+  
+  // 윈도우 리사이즈 시
+  window.addEventListener("resize", sendHeight);
+
+  // details 토글 감지 (카테고리 접기/펼치기)
+  document.querySelectorAll("details").forEach(detail => {
+    detail.addEventListener("toggle", () => {
+      sendHeight();
+      // 애니메이션 완료 후 여러 번 시도
+      setTimeout(sendHeight, 200);
+      setTimeout(sendHeight, 500);
+    });
+  });
+
+  // DOM 변경 감지
+  if (window.MutationObserver) {
+    const observer = new MutationObserver(() => {
+      sendHeight();
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true
+    });
+  }
+
+  // 주기적 높이 체크 (더 오래, 더 자주)
+  let checkCount = 0;
+  const intervalCheck = setInterval(() => {
+    sendHeight();
+    checkCount++;
+    if (checkCount > 20) {  // 20번 체크 후 중단
+      clearInterval(intervalCheck);
+    }
+  }, 300);
+  
+  // Twitter 위젯 로드 완료 감지
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'twitter-widget-loaded') {
+      setTimeout(sendHeight, 500);
+    }
+  });
+</script>
+</html>
