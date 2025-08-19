@@ -356,9 +356,10 @@
     <nav class="nav container" aria-label="주요 메뉴">
   <div class="brand"><span class="dot" aria-hidden="true"></span>ryanepark · Portfolio</div>
       <div class="links" style="display:flex; gap:18px; align-items:center;">
-        <a href="#works">작편곡</a>
-        <a href="#sfx">영상 효과음</a>
-  <a href="#broadcast">방송 음향</a>
+        <a href="#works" data-i18n="nav.works">작편곡</a>
+        <a href="#sfx" data-i18n="nav.sfx">영상 효과음</a>
+        <a href="#broadcast" data-i18n="nav.broadcast">방송 음향</a>
+        <button id="lang-toggle" aria-label="언어 변경">KO</button>
         <button id="theme-toggle" aria-label="테마 변경">🌞</button>
       </div>
     </nav>
@@ -369,10 +370,10 @@
     <div class="hero-grid">
       <div class="hero-card">
         <div class="pill"><span class="ping" aria-hidden="true"></span><span class="muted">Composer · Producer · Track-Maker · Audio Engineer</span></div>
-        <h1>안녕하세요, <span class="accent">유진</span>입니다.</h1>
-  <p class="lead">2020년부터 <strong>Crusadope</strong>, <strong>2sonmoa</strong> 등의 이름으로 활동 중인 작곡가입니다.<br/>
+        <h1 data-i18n-html="hero.h1">안녕하세요, <span class="accent">유진</span>입니다.</h1>
+  <p class="lead" data-i18n-html="hero.p1">2020년부터 <strong>Crusadope</strong>, <strong>2sonmoa</strong> 등의 이름으로 활동 중인 작곡가입니다.<br/>
     현재 엔터테인먼트 회사 <a class="link-underline" href="https://omnisoundkorea.com/" target="_blank" rel="noopener noreferrer"><strong>OMNISOUND</strong></a>와 협약 관계로, 다양한 음원 플랫폼에 <strong>100곡 이상</strong>의 음원을 발매했습니다.</p>
-        <p class="lead">노브레인 ‘넌 내게 반했어’ 리믹스 콘테스트 우승 등 다수의 수상 경력이 있으며, 호원대학교 실용음악학부 뮤직프로덕션 전공 재학 중입니다.<br/>
+        <p class="lead" data-i18n-html="hero.p2">노브레인 ‘넌 내게 반했어’ 리믹스 콘테스트 우승 등 다수의 수상 경력이 있으며, 호원대학교 실용음악학부 뮤직프로덕션 전공 재학 중입니다.<br/>
           주력인 전자음악 이외에도 댄스/힙합/로파이/이지리스닝/밴드곡 등 다양한 장르를 소화합니다.</p>
         <div class="badge-row">
           <span class="badge">#Electronic</span>
@@ -384,8 +385,8 @@
         </div>
         <div class="divider"></div>
         <div class="section-card" style="background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));">
-          <strong>작업 전 안내</strong>
-          <p class="muted" style="margin:8px 0 0;">
+          <strong data-i18n="hero.notice.title">작업 전 안내</strong>
+          <p class="muted" style="margin:8px 0 0;" data-i18n-html="hero.notice.body">
             작업 전 반드시 상담 부탁드리며, 작업물은 포트폴리오 용도로 활용될 수 있습니다. 원치 않으실 경우 미리 말씀해 주세요.<br/>
             주문 시 <strong>레퍼런스 곡/자료</strong>를 함께 보내주시면 더욱 원활합니다. 모든 작업은 횟수 제한 없이 수정해 드립니다.<br/><br/>
             곡 업로드 시 크레딧 예시: <em>믹싱 & 마스터링: 유진 (@ryanepark)</em><br/><br/>
@@ -394,15 +395,15 @@
         </div>
       </div>
       <div class="hero-card" aria-label="요약 정보">
-        <h3 style="margin:6px 0 8px;">요약</h3>
+        <h3 style="margin:6px 0 8px;" data-i18n="hero.summary.title">요약</h3>
         <ul class="muted" style="margin:0; padding-left: 18px;">
-          <li>활동명: Crusadope / 2sonmoa</li>
-          <li>발매: 100곡+</li>
-          <li>전공: 호원대 뮤직프로덕션</li>
-          <li>영역: 작편곡 · 믹싱 · 마스터링</li>
+          <li data-i18n="hero.summary.aliases">활동명: Crusadope / 2sonmoa</li>
+          <li data-i18n="hero.summary.releases">발매: 100곡+</li>
+          <li data-i18n="hero.summary.major">전공: 호원대 뮤직프로덕션</li>
+          <li data-i18n="hero.summary.areas">영역: 작편곡 · 믹싱 · 마스터링</li>
         </ul>
         <div class="divider"></div>
-        <p class="muted" style="margin:0;">아래 카테고리에서 작업물과 포트폴리오를 확인하세요.</p>
+        <p class="muted" style="margin:0;" data-i18n="hero.summary.note">아래 카테고리에서 작업물과 포트폴리오를 확인하세요.</p>
       </div>
     </div>
   </section>
@@ -414,13 +415,13 @@
         <span class="chev" aria-hidden="true">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
-        🎵 작편곡
+        <span aria-hidden="true">🎵</span> <span data-i18n="works.title">작편곡</span>
       </summary>
 
       <details open class="section-card" style="margin-top:12px;">
         <summary style="font-size:1.05rem; font-weight:700;">
           <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          🎤 오리지널 보컬 곡
+          <span aria-hidden="true">🎤</span> <span data-i18n="works.vocal.title">오리지널 보컬 곡</span>
         </summary>
         <div class="embed-row">
           <div class="track-block">
@@ -449,7 +450,7 @@
       <details open class="section-card" style="margin-top:12px;">
         <summary style="font-size:1.05rem; font-weight:700;">
           <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          📻 오리지널 BGM
+          <span aria-hidden="true">📻</span> <span data-i18n="works.bgm.title">오리지널 BGM</span>
         </summary>
         <div class="embed-row">
           <div class="track-block">
@@ -470,7 +471,7 @@
       <details open class="section-card" style="margin-top:12px;">
         <summary style="font-size:1.05rem; font-weight:700;">
           <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          🎛️ 개인 포트폴리오
+          <span aria-hidden="true">🎛️</span> <span data-i18n="works.portfolio.title">개인 포트폴리오</span>
         </summary>
         <div class="embed-row">
           <div class="track-block">
@@ -589,7 +590,7 @@
       <details open class="section-card" style="margin-top:12px;">
         <summary style="font-size:1.05rem; font-weight:700;">
           <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          🎶 MR 카피
+          <span aria-hidden="true">🎶</span> <span data-i18n="works.mr.title">MR 카피</span>
         </summary>
         <div class="embed-row">
           <div class="track-block">
@@ -608,7 +609,7 @@
     <details open class="category-block">
       <summary>
         <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-        🔊 영상 효과음
+        <span aria-hidden="true">🔊</span> <span data-i18n="sfx.title">영상 효과음</span>
       </summary>
       <div class="embed-row">
         <div class="track-block">
@@ -643,7 +644,7 @@
     <details open class="category-block">
       <summary>
         <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-        🎙️ 방송 음향 세팅
+        <span aria-hidden="true">🎙️</span> <span data-i18n="broadcast.title">방송 음향 세팅</span>
       </summary>
       <div class="embed-row">
         <div class="track-block" style="background:linear-gradient(180deg,#03ffa311,#03ffa305); border:1px solid var(--stroke); border-radius:var(--radius); padding:18px;">
@@ -662,7 +663,7 @@
     <details class="category-block" style="margin-top:0;">
       <summary>
         <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-        🎧 사용 장비
+        <span aria-hidden="true">🎧</span> <span data-i18n="gear.title">사용 장비</span>
       </summary>
       <ul class="muted" style="font-size: .95rem;">
         <li>CPU: Apple M3 Pro / Intel i5-9400F</li>
@@ -693,6 +694,92 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
   <script>
+    // --- Simple i18n dictionaries (KO/EN) ---
+    const I18N = {
+      ko: {
+        'nav.works': '작편곡',
+        'nav.sfx': '영상 효과음',
+        'nav.broadcast': '방송 음향',
+        'hero.h1': '안녕하세요, <span class="accent">유진</span>입니다.',
+        'hero.p1': '2020년부터 <strong>Crusadope</strong>, <strong>2sonmoa</strong> 등의 이름으로 활동 중인 작곡가입니다.<br/>\n    현재 엔터테인먼트 회사 <a class="link-underline" href="https://omnisoundkorea.com/" target="_blank" rel="noopener noreferrer"><strong>OMNISOUND</strong></a>와 협약 관계로, 다양한 음원 플랫폼에 <strong>100곡 이상</strong>의 음원을 발매했습니다.',
+        'hero.p2': '노브레인 ‘넌 내게 반했어’ 리믹스 콘테스트 우승 등 다수의 수상 경력이 있으며, 호원대학교 실용음악학부 뮤직프로덕션 전공 재학 중입니다.<br/>\n          주력인 전자음악 이외에도 댄스/힙합/로파이/이지리스닝/밴드곡 등 다양한 장르를 소화합니다.',
+        'hero.notice.title': '작업 전 안내',
+        'hero.notice.body': '작업 전 반드시 상담 부탁드리며, 작업물은 포트폴리오 용도로 활용될 수 있습니다. 원치 않으실 경우 미리 말씀해 주세요.<br/>\n            주문 시 <strong>레퍼런스 곡/자료</strong>를 함께 보내주시면 더욱 원활합니다. 모든 작업은 횟수 제한 없이 수정해 드립니다.<br/><br/>\n            곡 업로드 시 크레딧 예시: <em>믹싱 & 마스터링: 유진 (@ryanepark)</em><br/><br/>\n            모든 창작물에 대한 저작권은 작업자인 저, 유진에게 있습니다.',
+        'hero.summary.title': '요약',
+        'hero.summary.aliases': '활동명: Crusadope / 2sonmoa',
+        'hero.summary.releases': '발매: 100곡+',
+        'hero.summary.major': '전공: 호원대 뮤직프로덕션',
+        'hero.summary.areas': '영역: 작편곡 · 믹싱 · 마스터링',
+        'hero.summary.note': '아래 카테고리에서 작업물과 포트폴리오를 확인하세요.',
+        'works.title': '작편곡',
+        'works.vocal.title': '오리지널 보컬 곡',
+        'works.bgm.title': '오리지널 BGM',
+        'works.portfolio.title': '개인 포트폴리오',
+        'works.mr.title': 'MR 카피',
+        'sfx.title': '영상 효과음',
+        'broadcast.title': '방송 음향 세팅',
+        'gear.title': '사용 장비'
+      },
+      en: {
+        'nav.works': 'Works',
+        'nav.sfx': 'Video SFX',
+        'nav.broadcast': 'Broadcast Audio',
+        'hero.h1': 'Hello, I\'m <span class="accent">Yujin</span>.',
+        'hero.p1': 'I\'m a composer active since 2020 under the names <strong>Crusadope</strong> and <strong>2sonmoa</strong>.<br/>\n    I\'m in a partnership with <a class="link-underline" href="https://omnisoundkorea.com/" target="_blank" rel="noopener noreferrer"><strong>OMNISOUND</strong></a>, and have released <strong>100+ tracks</strong> across various platforms.',
+        'hero.p2': 'I won the No Brain “You\'re Attractive” remix contest and have received multiple awards. I\'m currently majoring in Music Production at Howon University.<br/>\n          While my main focus is electronic music, I produce across various genres including dance/hip-hop/lo-fi/easy listening/band.',
+        'hero.notice.title': 'Before We Start',
+        'hero.notice.body': 'Please consult before placing an order. Deliverables may be used in my portfolio; let me know in advance if you\'d prefer otherwise.<br/>\n            When ordering, sharing <strong>reference tracks/materials</strong> helps the process. Unlimited revisions are provided.<br/><br/>\n            Credit example when uploading: <em>Mixing & Mastering: Yujin (@ryanepark)</em><br/><br/>\n            All copyrights belong to me, the creator (Yujin).',
+        'hero.summary.title': 'Summary',
+        'hero.summary.aliases': 'Aliases: Crusadope / 2sonmoa',
+        'hero.summary.releases': 'Releases: 100+',
+        'hero.summary.major': 'Major: Music Production, Howon Univ.',
+        'hero.summary.areas': 'Areas: Composition/Arrangement · Mixing · Mastering',
+        'hero.summary.note': 'Browse the categories below to view my works and portfolio.',
+        'works.title': 'Works',
+        'works.vocal.title': 'Original Vocal Tracks',
+        'works.bgm.title': 'Original BGM',
+        'works.portfolio.title': 'Personal Portfolio',
+        'works.mr.title': 'MR Remake (Backing Track)',
+        'sfx.title': 'Video SFX',
+        'broadcast.title': 'Broadcast Audio Setup',
+        'gear.title': 'Gear'
+      }
+    };
+
+    function applyI18n(lang){
+      const dict = I18N[lang] || I18N.ko;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] != null) el.innerHTML = dict[key];
+      });
+      // Toggle button label
+      const langBtn = document.getElementById('lang-toggle');
+      if (langBtn) langBtn.textContent = lang === 'en' ? 'EN' : 'KO';
+    }
+
+    // Determine initial language
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = (navigator.language || 'ko').toLowerCase().startsWith('en') ? 'en' : 'ko';
+    const initialLang = savedLang || browserLang || 'ko';
+    document.documentElement.setAttribute('lang', initialLang === 'en' ? 'en' : 'ko');
+    document.addEventListener('DOMContentLoaded', ()=> applyI18n(initialLang));
+
+    // Language toggle
+    document.addEventListener('click', (e)=>{
+      if (e.target && e.target.id === 'lang-toggle'){
+        const current = (localStorage.getItem('lang') || initialLang);
+        const next = current === 'en' ? 'ko' : 'en';
+        localStorage.setItem('lang', next);
+        document.documentElement.setAttribute('lang', next === 'en' ? 'en' : 'ko');
+        applyI18n(next);
+        if (typeof sendHeight === 'function'){ setTimeout(sendHeight, 120); setTimeout(sendHeight, 500); }
+      }
+    });
+
     // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -792,7 +879,7 @@
       root.setAttribute('data-theme', initial);
       if (btn) btn.textContent = initial === 'light' ? '🌞' : '🌙';
   
-      btn && btn.addEventListener('click', ()=>{
+  btn && btn.addEventListener('click', ()=>{
         const cur  = root.getAttribute('data-theme');
         const next = cur === 'light' ? 'dark' : 'light';
         root.setAttribute('data-theme', next);
