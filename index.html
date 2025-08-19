@@ -724,11 +724,11 @@
         'nav.works': 'Works',
         'nav.sfx': 'Video SFX',
         'nav.broadcast': 'Broadcast Audio',
-        'hero.h1': 'Hello, I\'m <span class="accent">Yujin</span>.',
-        'hero.p1': 'I\'m a composer active since 2020 under the names <strong>Crusadope</strong> and <strong>2sonmoa</strong>.<br/>\n    I\'m in a partnership with <a class="link-underline" href="https://omnisoundkorea.com/" target="_blank" rel="noopener noreferrer"><strong>OMNISOUND</strong></a>, and have released <strong>100+ tracks</strong> across various platforms.',
-        'hero.p2': 'I won the No Brain “You\'re Attractive” remix contest and have received multiple awards. I\'m currently majoring in Music Production at Howon University.<br/>\n          While my main focus is electronic music, I produce across various genres including dance/hip-hop/lo-fi/easy listening/band.',
+  'hero.h1': 'Hello, I\'m <span class="accent">Ryan</span>.',
+  'hero.p1': 'I\'m a composer active since 2020 under the names <strong>Crusadope</strong> and <strong>2sonmoa</strong>.<br/>\n    I\'m in a partnership with <a class="link-underline" href="https://omnisoundkorea.com/" target="_blank" rel="noopener noreferrer"><strong>OMNISOUND</strong></a>, and have released <strong>100+ tracks</strong> across various platforms.',
+  'hero.p2': 'I\'ve won awards in multiple remix contests and I\'m currently majoring in Music Production at Howon University.<br/>\n          While my main focus is electronic music, I produce across various genres including dance/hip-hop/lo-fi/easy listening/band.',
         'hero.notice.title': 'Before We Start',
-        'hero.notice.body': 'Please consult before placing an order. Deliverables may be used in my portfolio; let me know in advance if you\'d prefer otherwise.<br/>\n            When ordering, sharing <strong>reference tracks/materials</strong> helps the process. Unlimited revisions are provided.<br/><br/>\n            Credit example when uploading: <em>Mixing & Mastering: Yujin (@ryanepark)</em><br/><br/>\n            All copyrights belong to me, the creator (Yujin).',
+  'hero.notice.body': 'Please consult before placing an order. Deliverables may be used in my portfolio; let me know in advance if you\'d prefer otherwise.<br/>\n            When ordering, sharing <strong>reference tracks/materials</strong> helps the process. Unlimited revisions are provided.<br/><br/>\n            Credit example when uploading: <em>Mixing & Mastering: ryanepark</em><br/><br/>\n            All copyrights belong to me, the creator (Ryan).',
         'hero.summary.title': 'Summary',
         'hero.summary.aliases': 'Aliases: Crusadope / 2sonmoa',
         'hero.summary.releases': 'Releases: 100+',
@@ -739,12 +739,45 @@
         'works.vocal.title': 'Original Vocal Tracks',
         'works.bgm.title': 'Original BGM',
         'works.portfolio.title': 'Personal Portfolio',
-        'works.mr.title': 'MR Remake (Backing Track)',
+  'works.mr.title': 'Instrumental',
         'sfx.title': 'Video SFX',
         'broadcast.title': 'Broadcast Audio Setup',
         'gear.title': 'Gear'
       }
     };
+
+    function translateRoleTags(lang){
+      const els = document.querySelectorAll('.role-tag');
+      if (lang === 'ko'){
+        els.forEach(el=>{ if (el.dataset.koHtml) el.innerHTML = el.dataset.koHtml; });
+        return;
+      }
+      const tagMap = {
+        '팝':'Pop','일렉트로닉':'Electronic','몽환적인':'Dreamy','귀여운':'Cute','챌린지':'Challenge',
+        '40만':'400K','95만':'950K','240만':'2.4M','애니풍':'Anime-style','활기찬':'Upbeat','일상':'Daily','잔잔한':'Calm',
+        '케이팝':'K-Pop','하우스':'House','뉴진스님':'NewJeans','싸이트랜스':'Psytrance','인디':'Indie','어두운':'Dark','강렬한':'Intense',
+        '힘찬':'Energetic','신나는':'Uplifting','밴드':'Band','제이락':'J-Rock','애니송':'Anisong','하드코어':'Hardcore',
+        '입시곡':'AuditionTrack','복합적인':'Complex','밝은':'Bright','고민중독':'GominJungdok','내꺼하는법':'NaekkeoHaneunBeop',
+        '이세돌':'IsegyeIdol','퓨쳐베이스':'FutureBass','로파이':'Lo-fi','그루비한':'Groovy','버튜버':'VTuber','티저':'Teaser','골든':'Golden','케데헌':'KDH','PV':'PV'
+      };
+      function mapHashtags(html){
+        return html.replace(/#([^\s#<]+)/g, (m, p1)=> '#' + (tagMap[p1] || p1));
+      }
+      els.forEach(el=>{
+        const src = el.dataset.koHtml || el.innerHTML;
+        let out = src;
+        out = out.replace('작사, 작곡, 편곡, 믹싱, 마스터링', 'Lyrics, Composition, Arrangement, Mixing, Mastering');
+        out = out.replace('작곡, 편곡, 믹싱, 마스터링', 'Composition, Arrangement, Mixing, Mastering');
+        out = out.replace('작곡, 편곡, 믹싱', 'Composition, Arrangement, Mixing');
+        out = out.replace('작곡, 편곡', 'Composition, Arrangement');
+        out = out.replace(/\b리믹스\b/g, 'Remix');
+        out = out.replace('효과음 제작, 삽입', 'SFX design, insertion');
+        out = out.replace('믹싱, 효과음 제작, 삽입', 'Mixing, SFX design, insertion');
+        out = out.replace('MR 카피', 'Instrumental');
+        out = mapHashtags(out);
+        el.innerHTML = out;
+      });
+    }
 
     function applyI18n(lang){
       const dict = I18N[lang] || I18N.ko;
@@ -756,6 +789,7 @@
         const key = el.getAttribute('data-i18n-html');
         if (dict[key] != null) el.innerHTML = dict[key];
       });
+      translateRoleTags(lang);
       // Toggle button label
       const langBtn = document.getElementById('lang-toggle');
       if (langBtn) langBtn.textContent = lang === 'en' ? 'EN' : 'KO';
@@ -766,7 +800,11 @@
     const browserLang = (navigator.language || 'ko').toLowerCase().startsWith('en') ? 'en' : 'ko';
     const initialLang = savedLang || browserLang || 'ko';
     document.documentElement.setAttribute('lang', initialLang === 'en' ? 'en' : 'ko');
-    document.addEventListener('DOMContentLoaded', ()=> applyI18n(initialLang));
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // snapshot KO originals for reversible translation
+      document.querySelectorAll('.role-tag').forEach(el=>{ if (!el.dataset.koHtml) el.dataset.koHtml = el.innerHTML; });
+      applyI18n(initialLang);
+    });
 
     // Language toggle
     document.addEventListener('click', (e)=>{
