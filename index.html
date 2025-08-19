@@ -770,7 +770,7 @@
         out = out.replace('작곡, 편곡, 믹싱, 마스터링', 'Composition, Arrangement, Mixing, Mastering');
         out = out.replace('작곡, 편곡, 믹싱', 'Composition, Arrangement, Mixing');
         out = out.replace('작곡, 편곡', 'Composition, Arrangement');
-        out = out.replace(/\b리믹스\b/g, 'Remix');
+  out = out.replace(/리믹스/g, 'Remix');
   // SFX 표기는 EN에서만 간단히 통일
   out = out.replace('믹싱, 효과음 제작, 삽입', 'Mixing, SFX');
   out = out.replace('효과음 제작, 삽입', 'SFX');
@@ -785,6 +785,28 @@
       });
     }
 
+    function translateGear(lang){
+      const lis = document.querySelectorAll('#gear ul li');
+      if (!lis.length) return;
+      if (lang === 'ko'){
+        lis.forEach(li=>{ if (li.dataset.koHtml) li.innerHTML = li.dataset.koHtml; });
+        return;
+      }
+      lis.forEach(li=>{
+        if (!li.dataset.koHtml) li.dataset.koHtml = li.innerHTML;
+        let out = li.dataset.koHtml;
+        out = out.replace(/^\s*오디오 인터페이스\s*:/, 'Audio Interface:');
+        out = out.replace(/^\s*스피커\s*:/, 'Speakers:');
+        out = out.replace(/^\s*헤드폰\s*:/, 'Headphones:');
+        out = out.replace(/^\s*이어폰\s*:/, 'Earphones:');
+        out = out.replace(/^\s*플러그인\s*:/, 'Plugins:');
+        out = out.replace(/외\s*다수\b/, 'and more');
+        // 문장 끝에 and more가 있으면 쉼표를 정리
+        out = out.replace(/\s*,?\s*and more\s*$/, ', and more');
+        li.innerHTML = out;
+      });
+    }
+
     function applyI18n(lang){
       const dict = I18N[lang] || I18N.ko;
       document.querySelectorAll('[data-i18n]').forEach(el=>{
@@ -796,6 +818,7 @@
         if (dict[key] != null) el.innerHTML = dict[key];
       });
       translateRoleTags(lang);
+  translateGear(lang);
       // Toggle button label
       const langBtn = document.getElementById('lang-toggle');
       if (langBtn) langBtn.textContent = lang === 'en' ? 'EN' : 'KO';
