@@ -738,8 +738,8 @@
         'works.title': 'Works',
         'works.vocal.title': 'Original Vocal Tracks',
         'works.bgm.title': 'Original BGM',
-        'works.portfolio.title': 'Personal Portfolio',
-  'works.mr.title': 'Instrumental',
+    'works.portfolio.title': 'Personal Portfolio',
+  'works.mr.title': 'Instrumental Remake',
         'sfx.title': 'Video SFX',
         'broadcast.title': 'Broadcast Audio Setup',
         'gear.title': 'Gear'
@@ -753,12 +753,12 @@
         return;
       }
       const tagMap = {
-        '팝':'Pop','일렉트로닉':'Electronic','몽환적인':'Dreamy','귀여운':'Cute','챌린지':'Challenge',
+        '팝':'Pop','일렉트로닉':'Electronic','몽환적인':'Dreamy','귀여운':'Cute','챌린지':'Viral',
         '40만':'400K','95만':'950K','240만':'2.4M','애니풍':'Anime-style','활기찬':'Upbeat','일상':'Daily','잔잔한':'Calm',
         '케이팝':'K-Pop','하우스':'House','뉴진스님':'NewJeans','싸이트랜스':'Psytrance','인디':'Indie','어두운':'Dark','강렬한':'Intense',
         '힘찬':'Energetic','신나는':'Uplifting','밴드':'Band','제이락':'J-Rock','애니송':'Anisong','하드코어':'Hardcore',
-        '입시곡':'AuditionTrack','복합적인':'Complex','밝은':'Bright','고민중독':'GominJungdok','내꺼하는법':'NaekkeoHaneunBeop',
-        '이세돌':'IsegyeIdol','퓨쳐베이스':'FutureBass','로파이':'Lo-fi','그루비한':'Groovy','버튜버':'VTuber','티저':'Teaser','골든':'Golden','케데헌':'KDH','PV':'PV'
+  '입시곡':'AuditionTrack','복합적인':'Complex','밝은':'Bright','고민중독':'QWER','내꺼하는법':'AyatsunoYuni',
+  '이세돌':'IsegyeIdol','퓨쳐베이스':'FutureBass','로파이':'Lo-fi','그루비한':'Groovy','버튜버':'VTuber','티저':'Teaser','골든':'Golden','케데헌':'HUNTR/X','PV':'PV'
       };
       function mapHashtags(html){
         return html.replace(/#([^\s#<]+)/g, (m, p1)=> '#' + (tagMap[p1] || p1));
@@ -771,10 +771,16 @@
         out = out.replace('작곡, 편곡, 믹싱', 'Composition, Arrangement, Mixing');
         out = out.replace('작곡, 편곡', 'Composition, Arrangement');
         out = out.replace(/\b리믹스\b/g, 'Remix');
-        out = out.replace('효과음 제작, 삽입', 'SFX design, insertion');
-        out = out.replace('믹싱, 효과음 제작, 삽입', 'Mixing, SFX design, insertion');
-        out = out.replace('MR 카피', 'Instrumental');
+  // SFX 표기는 EN에서만 간단히 통일
+  out = out.replace('믹싱, 효과음 제작, 삽입', 'Mixing, SFX');
+  out = out.replace('효과음 제작, 삽입', 'SFX');
+  out = out.replace('MR 카피', 'Instrumental Remake');
         out = mapHashtags(out);
+  // 영어에서만 #NewJeans 제거 및 공백 정리
+  out = out.replace(/\s*#NewJeans\b/g, '');
+  out = out.replace(/<span class=\"hashtags\">\s+/g, '<span class="hashtags">');
+  out = out.replace(/\s+<\/span>/g, '</span>');
+  out = out.replace(/\s{2,}/g, ' ');
         el.innerHTML = out;
       });
     }
