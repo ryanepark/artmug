@@ -187,8 +187,9 @@
     .chev { inline-size: 20px; block-size: 20px; flex: 0 0 20px; border-radius: 6px; display: grid; place-items: center;
       background: linear-gradient(135deg, rgba(106,227,255,.25), rgba(189,107,255,.22)); border: 1px solid var(--stroke);
     }
-    .chev svg { transition: transform .28s ease; }
-    details[open] .chev svg { transform: rotate(90deg); }
+  .chev svg { transition: transform .28s ease; transform: rotate(0deg); }
+  /* 열린 상태에서 아래쪽 화살표가 되도록 90deg 회전 */
+  details[open] .chev svg { transform: rotate(90deg); }
 
   /* embed rows */
     .embed-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; justify-content: center; margin: 12px 0 0; }
