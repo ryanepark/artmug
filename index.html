@@ -197,7 +197,7 @@
   .track-block { display: grid; gap: 8px; align-items: start; }
 
   /* 임베드 래퍼: 둥근 모서리 + 내부 클리핑 + 테두리/그림자 */
-  .embed-shell { border-radius: 14px; overflow: clip; background: #000; box-shadow: 0 0 0 1px var(--stroke) inset; transition: box-shadow .25s ease; will-change: box-shadow; isolation: isolate; }
+  .embed-shell { border-radius: 14px; overflow: clip; background: #000; box-shadow: 0 0 0 1px var(--stroke) inset; transition: box-shadow .25s ease; isolation: isolate; }
   .embed-shell:hover { box-shadow: 0 18px 48px rgba(0,0,0,.28), 0 0 0 1px var(--stroke) inset; }
 
   /* Lazy placeholder 상태 */
@@ -371,6 +371,12 @@
     :root[data-theme="dark"] .section-card.notice-card{
       background: linear-gradient(180deg, #e2b93a40, #e2b93a18) !important;
       border-color: color-mix(in oklab, #e2b93a 60%, var(--stroke));
+    }
+
+    /* 모바일/저데이터 환경 성능 보호: 디자인 형태 유지하며 강도만 축소 */
+    @media (max-width: 680px), (prefers-reduced-data: reduce) {
+      .bg-aurora { filter: blur(30px) saturate(100%) !important; opacity:.28 !important; animation: none !important; }
+      .noise { display: none !important; }
     }
   </style>
 </head>
@@ -760,39 +766,33 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // --- Stable height postMessage: prevent infinite growth ---
-    const HEIGHT_PADDING = 10; // 고정 패딩만 더함 (드리프트/무한증가 방지)
-    let heightTick;
+  const HEIGHT_PADDING = 10; // 고정 패딩만 더함 (드리프트/무한증가 방지)
+  let heightTick; let gestureActive = false;
     function calcContentHeight() {
       // embed 모드에서는 min-height:0 처리되어 scrollHeight가 콘텐츠 기준으로 계산됨
       return Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
     }
-    function sendHeight() {
+    function sendHeight(immediate=false) {
+      if(gestureActive) return; // pinch 중단
       clearTimeout(heightTick);
-      heightTick = setTimeout(() => {
+      const exec = () => {
         const height = calcContentHeight() + HEIGHT_PADDING;
-        if (window.parent) {
-          window.parent.postMessage({ type: 'resize', height }, '*');
-        }
-        if (window.parentIFrame && window.parentIFrame.size) {
-          try { window.parentIFrame.size(height); } catch (_) {}
-        }
-      }, 120);
+        try { if (window.parent) window.parent.postMessage({ type: 'resize', height }, '*'); } catch(_){ }
+        if (window.parentIFrame && window.parentIFrame.size) { try { window.parentIFrame.size(height); } catch(_){} }
+      };
+      if(immediate) exec(); else heightTick = setTimeout(exec, 140);
     }
 
-    window.addEventListener("load", () => {
-      sendHeight(); setTimeout(sendHeight, 500); setTimeout(sendHeight, 1000); setTimeout(sendHeight, 2000);
-    });
-    window.addEventListener("resize", sendHeight);
+  window.addEventListener("load", () => { sendHeight(true); setTimeout(()=>sendHeight(),400); });
+  window.addEventListener("resize", () => sendHeight());
     document.querySelectorAll("details").forEach(detail => {
-      detail.addEventListener("toggle", () => { sendHeight(); setTimeout(sendHeight, 200); setTimeout(sendHeight, 500); });
+      detail.addEventListener("toggle", () => { sendHeight(); setTimeout(()=>sendHeight(),220); });
     });
-    if (window.MutationObserver) {
-      const observer = new MutationObserver(() => { sendHeight(); });
-      observer.observe(document.body, { childList: true, subtree: true });
-    }
-    let checkCount = 0;
-    const intervalCheck = setInterval(() => { sendHeight(); if (++checkCount > 12) clearInterval(intervalCheck); }, 350);
-  window.addEventListener('message', function(event) { if (event.data && event.data.type === 'twitter-widget-loaded') setTimeout(sendHeight, 500); });
+  // MutationObserver 제거 -> 강한 변화 발생 시 명시적 호출 (lazy 로더 완료 시 setTimeout 내부에서 호출 예정)
+  window.addEventListener('message', function(event) { if (event.data && event.data.type === 'twitter-widget-loaded') setTimeout(()=>sendHeight(), 400); });
+  // iOS pinch gesture 감지 (WebKit 비표준 이벤트)
+  window.addEventListener('gesturestart', ()=>{ gestureActive = true; });
+  window.addEventListener('gestureend', ()=>{ gestureActive = false; sendHeight(true); });
 
     // --- Reveal on scroll ---
     const revealTargets = document.querySelectorAll('.section-card, .category-block, .tilt, .hero-card');
@@ -819,7 +819,7 @@
         ifr.closest('.embed-shell')?.setAttribute('data-loading','');
       }
     });
-    const mediaObserver = new IntersectionObserver(entries => {
+  const mediaObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
           const ifr = entry.target;
@@ -831,13 +831,13 @@
           mediaObserver.unobserve(ifr);
         }
       });
-    }, { rootMargin:'250px 0px', threshold:0.01 });
+  }, { rootMargin:'80px 0px', threshold:0.01 });
     mediaIframes.forEach(ifr => mediaObserver.observe(ifr));
 
     // === Lazy Load: Twitter widgets (single load) ===
     let twitterLoaded = false;
     const tweetBlocks = document.querySelectorAll('.tweet-embed blockquote.twitter-tweet');
-    const tweetObserver = new IntersectionObserver(entries => {
+  const tweetObserver = new IntersectionObserver(entries => {
       if(twitterLoaded) return;
       if(entries.some(e => e.isIntersecting)){
         const s = document.createElement('script');
@@ -847,7 +847,7 @@
         twitterLoaded = true;
         tweetObserver.disconnect();
       }
-    }, { rootMargin:'400px 0px' });
+  }, { rootMargin:'160px 0px' });
     tweetBlocks.forEach(b => tweetObserver.observe(b));
 
     // --- Hash navigation helper (works in embeds too) ---
