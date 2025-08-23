@@ -252,6 +252,17 @@
     .muted { color: var(--muted); }
     .accent { color: var(--accent); }
 
+    /* Notice (작업 전 안내) 강조: 연한 노란 톤 */
+    .notice-card {
+      background: linear-gradient(180deg, #ffd84a33, #ffd84a12) !important;
+      border: 1px solid color-mix(in oklab, #ffd84a 55%, var(--stroke)) !important;
+      box-shadow: 0 4px 16px -2px rgba(0,0,0,.12), 0 0 0 1px var(--stroke) inset;
+    }
+    :root[data-theme="dark"] .notice-card {
+      background: linear-gradient(180deg, #ffd84a28, #ffd84a10) !important;
+      border-color: color-mix(in oklab, #ffd84a 50%, var(--stroke));
+    }
+
     footer { margin: 40px 0 80px; color: var(--muted); text-align: center; font-size: .9rem; }
 
     /* Accessibility focus */
@@ -384,7 +395,7 @@
           <span class="badge">#Band</span>
         </div>
         <div class="divider"></div>
-        <div class="section-card" style="background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));">
+  <div class="section-card notice-card">
           <strong data-i18n="hero.notice.title">작업 전 안내</strong>
           <p class="muted" style="margin:8px 0 0;" data-i18n-html="hero.notice.body">
             작업 전 반드시 상담 부탁드리며, 작업물은 포트폴리오 용도로 활용될 수 있습니다. 원치 않으실 경우 미리 말씀해 주세요.<br/>
