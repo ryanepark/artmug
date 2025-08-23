@@ -356,6 +356,16 @@
     .bg-aurora{ opacity:.65; }
     :root[data-theme="light"] .bg-aurora{ opacity:.35 !important; filter: blur(42px) saturate(105%) !important; }
     :root[data-theme="dark"]  .bg-aurora{ opacity:.70 !important; filter: blur(48px) saturate(120%) !important; }
+    /* --- Late overrides: ensure notice-card color not overridden by later .section-card !important rule --- */
+    .section-card.notice-card{
+      background: linear-gradient(180deg, #ffe07555, #ffe07522) !important;
+      border: 1px solid color-mix(in oklab, #ffe075 55%, var(--stroke)) !important;
+      box-shadow: 0 4px 16px -2px rgba(0,0,0,.10), 0 0 0 1px var(--stroke) inset;
+    }
+    :root[data-theme="dark"] .section-card.notice-card{
+      background: linear-gradient(180deg, #e2b93a40, #e2b93a18) !important;
+      border-color: color-mix(in oklab, #e2b93a 60%, var(--stroke));
+    }
   </style>
 </head>
 <body>
