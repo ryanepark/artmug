@@ -170,8 +170,10 @@
    /* ------------------------------
      SLOT INLINE (hero summary)
      ------------------------------ */
-   .slot-inline { margin-top:14px; }
+  .slot-inline { margin-top:14px; }
   .slot-inline h3 { margin:0 0 4px; font-size:1.05rem; letter-spacing:.02em; font-weight:700; color:var(--text); }
+  /* 공통 서브 헤딩 (요약/슬롯 동일 크기 확보) */
+  .hero-subhead { font-size:1.05rem; font-weight:700; letter-spacing:.02em; margin:6px 0 8px; }
    .slot-inline .slot-bar { display:flex; gap:4px; }
    .slot-inline .slot { width:26px; height:26px; border-radius:8px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); position:relative; box-shadow:0 1px 4px -1px rgba(0,0,0,.4); opacity:.9; }
    .slot-inline .slot::after { content:""; position:absolute; inset:0; border:1px solid rgba(255,255,255,.35); border-radius:inherit; mix-blend-mode:overlay; }
@@ -444,7 +446,7 @@
       </div>
       <div class="hero-side">
         <div class="hero-card" aria-label="요약 정보">
-        <h3 style="margin:6px 0 8px;">요약</h3>
+  <h3 class="hero-subhead">요약</h3>
         <ul class="muted" style="margin:0; padding-left: 18px;">
           <li>활동명: Crusadope / 2sonmoa</li>
           <li>발매: 100곡+</li>
@@ -456,7 +458,7 @@
         </div>
         <div class="hero-card" aria-label="슬롯 현황" id="commission" style="display:flex; flex-direction:column; justify-content:center;">
           <div class="slot-inline" aria-label="슬롯 4개 중 4개 사용됨" role="img">
-            <h3 style="margin:0 0 4px; font-size:1rem;">슬롯</h3>
+            <h3 class="hero-subhead" style="margin:0 0 4px;">슬롯</h3>
             <p class="slot-note">학기 중엔 슬롯제로 운영합니다.<br/>(음향 세팅 제외)</p>
             <div class="slot-bar">
               <span class="slot filled" title="Slot 1"></span>
