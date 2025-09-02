@@ -166,6 +166,17 @@
     .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
   .badge { font-size: .85rem; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--stroke); background: color-mix(in oklab, var(--bg-2) 92%, transparent); color: var(--muted); }
 
+   /* ------------------------------
+     COMMISSION SLOTS (simple bar)
+     ------------------------------ */
+   .commission-card h2 { font-size: clamp(22px,2.8vw,30px); letter-spacing:-.5px; margin:0 0 6px; }
+   .slot-bar { display:flex; gap:10px; }
+   .slot-bar .slot { flex:1; height:38px; border-radius:12px; background:linear-gradient(180deg,var(--accent),var(--accent-2)); position:relative; box-shadow:0 4px 14px -4px rgba(0,0,0,.4); opacity:.85; }
+   .slot-bar .slot::after { content:""; position:absolute; inset:0; border:1px solid rgba(255,255,255,.35); border-radius:inherit; mix-blend-mode:overlay; }
+   .slot-bar .slot.empty { background:linear-gradient(180deg, color-mix(in oklab, var(--bg-2) 94%, transparent), color-mix(in oklab, var(--bg-2) 88%, transparent)); box-shadow:none; opacity:.55; }
+   .slot-status-text { margin-top:10px; font-size:.8rem; letter-spacing:.05em; font-weight:600; color:var(--muted); }
+   @media (max-width:700px){ .slot-bar { gap:8px; } .slot-bar .slot { height:32px; } }
+
   .pill { display: inline-flex; align-items: center; gap: 10px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--stroke); background: rgba(255,255,255,.05); font-size: 0.85rem; margin-bottom: 0.75rem; }
     .pill .ping { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px rgba(106,227,255,.9); }
 
@@ -389,6 +400,7 @@
     <nav class="nav container" aria-label="주요 메뉴">
   <div class="brand"><span class="dot" aria-hidden="true"></span>ryanepark · Portfolio</div>
       <div class="links" style="display:flex; gap:18px; align-items:center;">
+  <a href="#commission">커미션</a>
   <a href="#works">작편곡</a>
   <a href="#mixing">믹싱</a>
   <a href="#sfx">영상 효과음</a>
@@ -438,6 +450,21 @@
         <div class="divider"></div>
         <p class="muted" style="margin:0;">아래 카테고리에서 작업물과 포트폴리오를 확인하세요.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- COMMISSION SLOTS -->
+  <section id="commission" class="container" aria-label="커미션 슬롯">
+    <div class="section-card commission-card">
+      <h2>커미션 슬롯</h2>
+      <p class="muted" style="margin:2px 0 14px; font-size:.8rem;">학기 중엔 슬롯제로 운영됩니다.</p>
+      <div class="slot-bar" aria-label="4개 중 4개 사용됨" role="img">
+        <span class="slot filled" title="Slot 1"></span>
+        <span class="slot filled" title="Slot 2"></span>
+        <span class="slot filled" title="Slot 3"></span>
+        <span class="slot filled" title="Slot 4"></span>
+      </div>
+      <div class="slot-status-text">4 / 4 FULL</div>
     </div>
   </section>
 
