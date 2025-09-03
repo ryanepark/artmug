@@ -161,6 +161,8 @@
       background: var(--card);
       border: 1px solid var(--stroke); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-soft);
     }
+    /* 메인 소개 카드만 상단 패딩 축소해 pill을 위로 */
+    .hero-card.hero-main { padding: 18px 28px 28px; }
     .hero h1 { font-size: clamp(28px, 4.8vw, 52px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.5px; }
     .hero p.lead { color: var(--muted); font-size: clamp(14px, 2vw, 18px); margin: 0 0 16px; }
 
@@ -182,7 +184,7 @@
   .slot-inline .slot-note { margin:0 0 6px; font-size:.72rem; color:var(--muted); line-height:1.35; }
   @media (max-width:700px){ .slot-inline .slot { width:34px; height:34px; } }
 
-  .pill { display: inline-flex; align-items: center; gap: 10px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--stroke); background: rgba(255,255,255,.05); font-size: 0.85rem; margin-bottom: 1.15rem; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--stroke); background: rgba(255,255,255,.05); font-size: 0.85rem; margin-bottom: 1.6rem; }
     .pill .ping { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px rgba(106,227,255,.9); }
 
     /* Section */
@@ -418,7 +420,7 @@
   <!-- HERO -->
   <section class="hero container">
     <div class="hero-grid">
-      <div class="hero-card">
+  <div class="hero-card hero-main">
         <div class="pill"><span class="ping" aria-hidden="true"></span><span class="muted">Composer · Producer · Track-Maker · Audio Engineer</span></div>
     <h1>안녕하세요, <span class="accent">유진</span>입니다.</h1>
   <p class="lead">2020년부터 <strong>Crusadope</strong>, <strong>2sonmoa</strong> 등의 이름으로 활동 중인 작곡가입니다.<br/>
