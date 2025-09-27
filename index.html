@@ -180,6 +180,21 @@
   .slot-inline .slot { width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); position:relative; box-shadow:0 2px 6px -1px rgba(0,0,0,.45); opacity:.9; }
    .slot-inline .slot::after { content:""; position:absolute; inset:0; border:1px solid rgba(255,255,255,.35); border-radius:inherit; mix-blend-mode:overlay; }
   .slot-inline .slot.empty { background:linear-gradient(135deg, color-mix(in oklab, var(--bg-2) 94%, transparent), color-mix(in oklab, var(--bg-2) 88%, transparent)); box-shadow:none; opacity:.4; }
+  /* 빈 슬롯 강조: 실금(헤어라인) + 약한 색조, 불투명도 회복 */
+  .slot-inline .slot.empty {
+    opacity:.9; /* 가독성 확보 */
+    box-shadow:0 0 0 1px var(--stroke) inset;
+  }
+  .slot-inline .slot.empty::before {
+    content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+    /* 실금: 단일 대각선 헤어라인 */
+    background:linear-gradient(135deg, transparent 49%, color-mix(in oklab, var(--accent) 68%, transparent) 50%, transparent 51%);
+    opacity:.75; mix-blend-mode:overlay;
+  }
+  /* 다크 테마에서 실금이 과도하게 밝지 않도록 조정 */
+  :root[data-theme="dark"] .slot-inline .slot.empty::before {
+    opacity:.55;
+  }
   .slot-inline .slot-status-text { margin-top:4px; font-size:.7rem; letter-spacing:.08em; font-weight:600; color:var(--muted); }
   .slot-inline .slot-note { margin:0 0 6px; font-size:.72rem; color:var(--muted); line-height:1.35; }
   @media (max-width:700px){ .slot-inline .slot { width:34px; height:34px; } }
@@ -512,8 +527,6 @@
             </div>
             <span class="role-tag">작곡, 편곡, 믹싱, 마스터링 <span class="hashtags">#애니풍 #귀여운 #활기찬 #100만</span></span>
           </div>
-        </div>
-        <div class="embed-row" style="margin-top:18px;">
           <div class="track-block">
             <div class="embed-shell">
               <iframe class="media-embed" src="https://www.youtube.com/embed/rRno2yPl5tk?si=CNIMh7VXQSteMBfg" allowfullscreen></iframe>
