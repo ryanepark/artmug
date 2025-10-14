@@ -799,7 +799,7 @@
             <div class="embed-shell">
               <iframe class="media-embed" src="https://www.youtube.com/embed/sFViE4r-CUQ?si=p-IKd6I8p2jjqykF" allowfullscreen></iframe>
             </div>
-            <span class="role-tag">믹싱, 마스터링 <span class="hashtags">#1절치기</span></span>
+            <span class="role-tag">믹싱, 마스터링</span>
           </div>
         </div>
       </div>
@@ -903,7 +903,7 @@
   window.addEventListener("load", () => { sendHeight(true); setTimeout(()=>sendHeight(),400); });
   window.addEventListener("resize", () => sendHeight());
     document.querySelectorAll("details").forEach(detail => {
-      detail.addEventListener("toggle", () => { sendHeight(); setTimeout(()=>sendHeight(),220); });
+      detail.addEventListener("toggle", () => { sendHeight(); setTimeout(() => sendHeight(), 220); });
     });
   // MutationObserver 제거 -> 강한 변화 발생 시 명시적 호출 (lazy 로더 완료 시 setTimeout 내부에서 호출 예정)
   window.addEventListener('message', function(event) { if (event.data && event.data.type === 'twitter-widget-loaded') setTimeout(()=>sendHeight(), 400); });
